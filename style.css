@@ -109,6 +109,7 @@
 p {
   color: white;
 }
+/* why my css start lagging */
 
 @media screen and (max-width: 1024px) {
   .logo > img {
