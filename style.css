@@ -36,9 +36,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: aqua; */
   height: 75px;
-  /* margin-top: 25px; */
 }
 
 .links {
@@ -58,7 +56,6 @@
   display: none;
 }
 .dropdown {
-  background-color: var(--primaryColor);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -68,12 +65,52 @@
   top: 15%;
   left: 0;
   width: 100vw;
-  height: 400px;
+  height: 200px;
   font-size: var(--h2FontSize);
-  color: var(--secondaryColor);
+  background-color: var(--secondaryColor);
 }
 
-@media screen and (max-width: 425px) {
+.dropdown a {
+  display: block;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+}
+
+.landing {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  gap: 50px;
+  width: 100%;
+  color: white;
+  height: 500px;
+  background-size: cover;
+}
+.landing-heading {
+  font-size: 4rem;
+}
+
+.about {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+  gap: 100px;
+}
+
+.aboutUs {
+  font-size: 3rem;
+  color: white;
+}
+p {
+  color: white;
+}
+
+@media screen and (max-width: 1024px) {
   .logo > img {
     width: 120px;
     height: 40px;
