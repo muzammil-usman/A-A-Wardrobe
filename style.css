@@ -48,13 +48,15 @@
 .links > a {
   font-size: 1.5rem;
   color: white;
-  &:hover {
-    text-decoration: underline;
-  }
 }
+.links > a:hover {
+  text-decoration: underline;
+}
+
 #icon {
   display: none;
 }
+
 .dropdown {
   display: flex;
   flex-direction: column;
@@ -71,47 +73,101 @@
 }
 
 .dropdown a {
-  display: block;
   color: white;
   text-decoration: none;
   font-size: 16px;
 }
 
 .landing {
+  position: relative;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
   gap: 50px;
-  width: 100%;
+  overflow-y: hidden;
   color: white;
-  height: 500px;
-  background-size: cover;
-}
-.landing-heading {
-  font-size: 4rem;
 }
 
-.about {
+.landing-heading {
+  position: absolute;
+  font-size: 4rem;
+  border-right: 3px solid var(--primaryColor);
+  white-space: nowrap;
+  overflow: hidden;
+  top: 30%;
+}
+video {
+  width: 100%;
+}
+.footer {
+  background-color: var(--primaryColor);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  gap: 50px;
+  align-items: center;
+  text-align: center;
+  height: 150px;
+  margin-bottom: 5px;
+}
+
+.card1 {
+  padding-left: 25px;
+}
+
+.card1,
+.card3 {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 10px;
+}
+.card2 {
+  width: 30%;
+}
+
+.firstRow,
+.secondRow,
+.thirdRow,
+.facebook,
+.insta {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+a {
+  color: var(--secondaryColor);
+  &:hover {
+    color: var(--hoverColour);
+    cursor: pointer;
+  }
+}
+.copyright {
   display: flex;
   justify-content: center;
   align-items: center;
-  text-align: center;
-  flex-direction: column;
-  gap: 100px;
+  gap: 25px;
+  background-color: black;
+  color: var(--secondaryColour);
 }
-
-.aboutUs {
-  font-size: 3rem;
-  color: white;
+.copyright-description {
+  font-size: 1.5rem;
+  color: var(--primaryColor);
 }
-p {
-  color: white;
+.Reachit {
+  font-size: 2rem;
+  color: red;
 }
-/* why my css start lagging */
-
 @media screen and (max-width: 1024px) {
+  .landing-heading {
+    font-size: 2rem;
+    text-wrap: wrap;
+  }
+
   .logo > img {
     width: 120px;
     height: 40px;
@@ -128,5 +184,31 @@ p {
   #icon {
     display: block;
     color: white;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .footer {
+    flex-direction: column;
+    height: 300px;
+    justify-content: center;
+    gap: 25px;
+  }
+  .card1,
+  .card2,
+  .card3 {
+    width: 100%;
+  }
+  .card3 {
+    padding-left: 25px;
+  }
+  .copyright {
+    gap: 12.5px;
+  }
+  .copyright-description {
+    font-size: 1rem;
+  }
+  .Reachit {
+    font-size: 1.2rem;
   }
 }
