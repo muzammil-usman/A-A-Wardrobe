@@ -1,12 +1,48 @@
+// gsap animation of navbar
+var timeLine = gsap.timeline();
+
+timeLine.from(".logo", {
+  y: -20,
+  opacity: 0,
+  duration: 1,
+});
+timeLine.from("a", {
+  y: -20,
+  opacity: 0,
+  duration: 1,
+  stagger: 0.3,
+});
+
+// Navbar dropdown toggle
+var colorChanger = () => {
+  let existingDropDown = document.querySelector(".dropdown");
+
+  if (existingDropDown) {
+    existingDropDown.remove();
+  } else {
+    let dropDown = document.createElement("div");
+    dropDown.setAttribute("class", "dropdown");
+    dropDown.innerHTML = `<a href="">Home</a><a href="">Categories</a> <a href="">Why choose us</a> <a href="">Contact</a>`;
+
+    let main = document.getElementById("main-cont");
+    main.appendChild(dropDown);
+  }
+};
+
+var bars = document.getElementById("icon");
+bars.addEventListener("click", colorChanger);
+
+// typewriter animation on landing page
+
 document.addEventListener("DOMContentLoaded", function () {
-  let texts = ["Welcome to A & A Wardrobe", "Shop all in one roof..."]; // Multiple texts
-  let textIndex = 0; // Current text ka index
+  let texts = ["Welcome to A & A Wardrobe", "Shop all in one roof..."];
+  let textIndex = 0;
   let charIndex = 0;
   let typingText = document.getElementById("typing-text");
   let isDeleting = false;
 
   function typeWriter() {
-    let currentText = texts[textIndex]; // Current text choose karega
+    let currentText = texts[textIndex];
 
     if (!isDeleting && charIndex < currentText.length) {
       typingText.innerHTML += currentText.charAt(charIndex);
@@ -21,11 +57,11 @@ document.addEventListener("DOMContentLoaded", function () {
         setTimeout(() => {
           isDeleting = true;
           typeWriter();
-        }, 1000); // Thoda delay jab pura text likh jaye
+        }, 1000);
       } else {
         isDeleting = false;
-        textIndex = (textIndex + 1) % texts.length; // Next text par move karega
-        setTimeout(typeWriter, 500); // Thoda delay naya text start hone se pehle
+        textIndex = (textIndex + 1) % texts.length;
+        setTimeout(typeWriter, 500);
       }
     }
   }
@@ -33,21 +69,32 @@ document.addEventListener("DOMContentLoaded", function () {
   typeWriter();
 });
 
-// Navbar dropdown toggle
-var colorChanger = () => {
-  let existingDropDown = document.querySelector(".dropdown");
+// gsap categories animation
 
-  if (existingDropDown) {
-    existingDropDown.remove();
-  } else {
-    let dropDown = document.createElement("div");
-    dropDown.setAttribute("class", "dropdown");
-    dropDown.innerHTML = `<a href="">Home</a><a href="">Products</a> <a href="">Contact</a>`;
+gsap.from(".mens", {
+  scale: 0,
+  duration: 2,
+  x: -500,
+  scrollTrigger: {
+    trigger: ".categories",
+    scroller: ".main",
+    start: "top 50%",
+    end: "top 25%",
+    scrub: 2,
+    // markers: true,
+  },
+});
 
-    let main = document.getElementById("main-cont");
-    main.appendChild(dropDown);
-  }
-};
-
-var bars = document.getElementById("icon");
-bars.addEventListener("click", colorChanger);
+gsap.from(".womens", {
+  scale: 0,
+  duration: 2,
+  x: -500,
+  scrollTrigger: {
+    trigger: ".categories",
+    scroller: ".main",
+    start: "top 50%",
+    end: "top 25%",
+    scrub: 2,
+    // markers: true,
+  },
+});
